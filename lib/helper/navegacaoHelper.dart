@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animacoes_complexas/view/login/loginView.dart';
 import 'package:flutter_animacoes_complexas/view/principalView.dart';
-
 
 class NavegacaoHelper {
   static const rotaPrincipal = "/";
-  static const rotaAnimacao = "/animacao";
+  static const rotaLogin = "/login";
 
   static RouteFactory rotas() {
     return (settings) {
@@ -16,9 +16,9 @@ class NavegacaoHelper {
           viewEncontrada = PrincipalView();
           break;
 
-        // case rotaNavegacao01:
-        //   viewEncontrada = Navegacao01View();
-        //   break;
+        case rotaLogin:
+          viewEncontrada = LoginView();
+          break;
 
         // case rotaNavegacao02:
         //   //Faço aqui a extração dos parâmetros
