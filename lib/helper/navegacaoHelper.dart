@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animacoes_complexas/view/home/homeView.dart';
 import 'package:flutter_animacoes_complexas/view/login/loginView.dart';
 import 'package:flutter_animacoes_complexas/view/principalView.dart';
 
 class NavegacaoHelper {
   static const rotaPrincipal = "/";
   static const rotaLogin = "/login";
+  static const rotaHome = "/home";
 
   static RouteFactory rotas() {
     return (settings) {
@@ -18,6 +20,10 @@ class NavegacaoHelper {
 
         case rotaLogin:
           viewEncontrada = LoginView();
+          break;
+
+          case rotaHome:
+          viewEncontrada = HomeView();
           break;
 
         // case rotaNavegacao02:

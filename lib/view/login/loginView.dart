@@ -4,19 +4,18 @@ import 'animacoes/loginAnimacao.dart';
 import 'package:flutter_animacoes_complexas/view/login/widgets/loginConteudoWidget.dart';
 import 'package:flutter_animacoes_complexas/view/login/widgets/loginBotaoCadastroWidget.dart';
 
-
 class LoginView extends StatefulWidget {
   @override
   _LoginViewState createState() => _LoginViewState();
 }
 
 class _LoginViewState extends State<LoginView> with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
+    _controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 2),
     );
@@ -24,7 +23,7 @@ class _LoginViewState extends State<LoginView> with SingleTickerProviderStateMix
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -57,7 +56,7 @@ class _LoginViewState extends State<LoginView> with SingleTickerProviderStateMix
                     LoginBotaoCadastroWidget(),
                   ],
                 ),
-                LoginAnimacao(animationController: _animationController.view)
+                LoginAnimacao(animationController: _controller.view)
               ],
             ),
           ],

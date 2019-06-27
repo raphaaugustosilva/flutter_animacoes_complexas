@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LoginAnimacao extends StatelessWidget {
   final AnimationController animationController;
   LoginAnimacao({this.animationController})
-      : diminuirBotao = Tween(
+      : animacaoDiminuirBotao = Tween(
           begin: 320.0,
           end: 60.0,
         ).animate(
@@ -12,7 +12,7 @@ class LoginAnimacao extends StatelessWidget {
             curve: Interval(0, 0.150),
           ),
         ),
-        aumentarBotao = Tween(
+        animacaoAumentarBotao = Tween(
           begin: 60.0,
           end: 1000.0,
         ).animate(
@@ -22,8 +22,8 @@ class LoginAnimacao extends StatelessWidget {
           ),
         );
 
-  final Animation<double> diminuirBotao;
-  final Animation<double> aumentarBotao;
+  final Animation<double> animacaoDiminuirBotao;
+  final Animation<double> animacaoAumentarBotao;
 
   Widget _buildAnimation(BuildContext context, Widget child) {
     return Padding(
@@ -32,9 +32,9 @@ class LoginAnimacao extends StatelessWidget {
         onTap: () {
           animationController.forward();
         },
-        child: aumentarBotao.value == 60
+        child: animacaoAumentarBotao.value == 60
             ? Container(
-                width: diminuirBotao.value,
+                width: animacaoDiminuirBotao.value,
                 height: 60,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -44,11 +44,11 @@ class LoginAnimacao extends StatelessWidget {
                 child: _constroiBotao(context),
               )
             : Container(
-                width: aumentarBotao.value,
-                height: aumentarBotao.value,
+                width: animacaoAumentarBotao.value,
+                height: animacaoAumentarBotao.value,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(247, 64, 106, 1.0),
-                  shape: aumentarBotao.value < 500 ? BoxShape.circle : BoxShape.rectangle,
+                  shape: animacaoAumentarBotao.value < 500 ? BoxShape.circle : BoxShape.rectangle,
                 ),
               ),
       ),
@@ -64,7 +64,7 @@ class LoginAnimacao extends StatelessWidget {
   }
 
   Widget _constroiBotao(BuildContext context) {
-    if (diminuirBotao.value > 75) {
+    if (animacaoDiminuirBotao.value > 75) {
       return Text(
         "Login",
         style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w300, letterSpacing: 0.3),
