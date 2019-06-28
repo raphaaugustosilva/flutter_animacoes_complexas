@@ -27,6 +27,7 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return HomeAnimacao(controller: _controller);
+    timeDilation = 1;
+    return HomeAnimacao(animationController: _controller);
   }
 }

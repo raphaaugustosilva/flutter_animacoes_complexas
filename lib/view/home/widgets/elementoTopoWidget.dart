@@ -1,4 +1,7 @@
+import 'categoriasWidget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 
 class ElementoTopoWidget extends StatelessWidget {
   final Animation<double> animacaoCrescerContainer;
@@ -44,14 +47,18 @@ class ElementoTopoWidget extends StatelessWidget {
                 width: animacaoCrescerContainer.value * 35,
                 height: animacaoCrescerContainer.value * 35,
                 margin: EdgeInsets.only(left: 80),
-                child: Center(
-                  child: Text(
-                    "2",
-                    style: TextStyle(fontSize: animacaoCrescerContainer.value * 15),
-                  ),
+                alignment: Alignment.center,
+                child: Text(
+                  "2",
+                  style: TextStyle(fontSize: animacaoCrescerContainer.value * 15, fontWeight: FontWeight.w400, color: Colors.white),
+                ),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color.fromRGBO(80, 210, 194, 1.0),
                 ),
               ),
-            )
+            ),
+            CategoriasWidget(),
           ],
         ),
       ),

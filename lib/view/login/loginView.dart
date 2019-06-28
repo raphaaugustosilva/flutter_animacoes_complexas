@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:flutter_animacoes_complexas/helper/navegacaoHelper.dart';
 import 'animacoes/loginAnimacao.dart';
 import 'package:flutter_animacoes_complexas/view/login/widgets/loginConteudoWidget.dart';
 import 'package:flutter_animacoes_complexas/view/login/widgets/loginBotaoCadastroWidget.dart';
@@ -10,20 +11,27 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+
+    _animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 2),
     );
+
+    _animationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Navigator.of(context).pushNamed(NavegacaoHelper.rotaHome);
+      }
+    });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -56,7 +64,7 @@ class _LoginViewState extends State<LoginView> with SingleTickerProviderStateMix
                     LoginBotaoCadastroWidget(),
                   ],
                 ),
-                LoginAnimacao(animationController: _controller.view)
+                LoginAnimacao(animationController: _animationController.view)
               ],
             ),
           ],

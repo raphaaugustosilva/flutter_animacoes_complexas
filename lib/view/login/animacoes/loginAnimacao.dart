@@ -32,25 +32,28 @@ class LoginAnimacao extends StatelessWidget {
         onTap: () {
           animationController.forward();
         },
-        child: animacaoAumentarBotao.value == 60
-            ? Container(
-                width: animacaoDiminuirBotao.value,
-                height: 60,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(247, 64, 106, 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
+        child: Hero(
+          tag: "heroMeuFadeLogin",
+          child: animacaoAumentarBotao.value == 60
+              ? Container(
+                  width: animacaoDiminuirBotao.value,
+                  height: 60,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(247, 64, 106, 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
+                  child: _constroiBotao(context),
+                )
+              : Container(
+                  width: animacaoAumentarBotao.value,
+                  height: animacaoAumentarBotao.value,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(247, 64, 106, 1.0),
+                    shape: animacaoAumentarBotao.value < 500 ? BoxShape.circle : BoxShape.rectangle,
+                  ),
                 ),
-                child: _constroiBotao(context),
-              )
-            : Container(
-                width: animacaoAumentarBotao.value,
-                height: animacaoAumentarBotao.value,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(247, 64, 106, 1.0),
-                  shape: animacaoAumentarBotao.value < 500 ? BoxShape.circle : BoxShape.rectangle,
-                ),
-              ),
+        ),
       ),
     );
   }

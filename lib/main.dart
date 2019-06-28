@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: NavegacaoHelper.rotaHome,
+      initialRoute: NavegacaoHelper.rotaLogin,
       onGenerateRoute: NavegacaoHelper.rotas(),
       onUnknownRoute: NavegacaoHelper.rotaNaoEncontrada(),
       title: "Animações Complexas",
